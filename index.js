@@ -16,12 +16,12 @@ function createTransform () {
   return duplexer(concat({ encoding: 'buffer' }, function (buf) {
     const body = buf.toString('utf8').replace(/^#!/, '//#!');
     
-    // quick check for match before parsing
-    if (!body.includes('.prototype.')) {
-      output.write(buf)
-      output.end()
-      return
-    }
+    // // quick check for match before parsing
+    // if (!body.includes('.prototype.')) {
+    //   output.write(buf)
+    //   output.end()
+    //   return
+    // }
     
     // parse, transform, output
     const ast = parser.parse(body)
